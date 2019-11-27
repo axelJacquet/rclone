@@ -13,7 +13,7 @@ usage () {
 }
 for i in $@ ; do
         case "${1}" in
-        "--folders-to-backup"|"-f ")
+        "--folders-to-backup"|"-f")
                 if [ -z "${2}" ] ; then
                         echo "No parameter defining the --folder-to-backup parameter"
                         usage
