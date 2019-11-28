@@ -40,14 +40,27 @@ elif [ "$move_old_files_to" != "" ]; then
     backup_dir="--backup-dir=$dest/$timestamp"
 fi
 
+sudo rm -rf /test/*
+sudo rm -rf /test/
+
+sudo mkdir /test/
+sudo mkdir /test/backups/
 
 FOLDERS_TO_BACKUP=$(echo ${FOLDER_TO_BACKUP} | tr ',' ' ')
 for i in ${FOLDERS_TO_BACKUP}"" ; do
 
 
+  sudo cp -r $i /test/backups/
+  #ls= ls -la /pika/
+  #echo $ls
+  eval "rclone sync /test/ $dest/$new $backup_dir"
+  #eval "rclone copy /pika/ $dest/$new $backup_dir"
+  #eval "rclone sync /pika/ $dest"
 
-        echo "dddddddddddddddddddddd"
-        eval "/usr/bin/rclone sync $i $dest/$new $backup_dir"
+
+
+
+  #eval "/usr/bin/rclone sync $i $dest/$new $backup_dir"
 
         #echo "$cmd"
 done
