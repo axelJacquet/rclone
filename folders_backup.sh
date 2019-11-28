@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 set -e
 dest="$3"
 
@@ -14,11 +15,12 @@ usage () {
 for i in $@ ; do
         case "${1}" in
         "--folders-to-backup"|"-f")
+        echo $1
                 if [ -z "${2}" ] ; then
                         echo "No parameter defining the --folder-to-backup parameter"
                         usage
                 fi
-                FOLDER_TO_BACKUP=${2}
+                FOLDER_TO_BACKUP="${2}"
                 shift
                 shift
         ;;
@@ -39,14 +41,14 @@ elif [ "$move_old_files_to" != "" ]; then
   Moving old data to dated_directory."
     backup_dir="--backup-dir=$dest/$timestamp"
 fi
-
+FOLDERS_TO_BACKUP=$(echo ${FOLDER_TO_BACKUP} | tr -d  ' ' )
 sudo rm -rf /test/*
 sudo rm -rf /test/
 
 sudo mkdir /test/
 sudo mkdir /test/backups/
 
-FOLDERS_TO_BACKUP=$(echo ${FOLDER_TO_BACKUP} | tr ',' ' ')
+FOLDERS_TO_BACKUP=$(echo ${FOLDER_TO_BACKUP} | tr  ',' ' ' )
 for i in ${FOLDERS_TO_BACKUP}"" ; do
 
 
