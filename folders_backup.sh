@@ -4,7 +4,7 @@ dest="$3"
 
 move_old_files_to="$4"
 
-new="last_snapshot"
+new="last_snapshot:$(date +%F_%T)"
 timestamp="$(date +%F_%T)"
 
 usage () {
