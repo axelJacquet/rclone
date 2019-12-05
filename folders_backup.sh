@@ -55,7 +55,7 @@ for i in ${FOLDERS_TO_BACKUP}"" ; do
   sudo cp -r $i /test/backups/
   #ls= ls -la /pika/
   #echo $ls
-  eval "rclone sync /test/ $dest/$new/backups $backup_dir"
+  eval "rclone sync /test/ $dest/$new $backup_dir"
   #eval "rclone copy /pika/ $dest/$new $backup_dir"
   #eval "rclone sync /pika/ $dest"
 
