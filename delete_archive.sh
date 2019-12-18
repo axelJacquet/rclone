@@ -36,7 +36,7 @@ for i in ${FOLDERS_TO_BACKUP}"" ; do
 
 
 
-  eval "/usr/bin/rclone purge $dest:archive\_$i/"
+  eval "/usr/bin/rclone purge $dest:archive/$(hostname -a)\_$i/"
 
 
 done
