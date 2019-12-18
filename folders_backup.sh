@@ -44,7 +44,7 @@ for i in ${FOLDERS_TO_BACKUP}"" ; do
 
   if [ "$move_old_files_to" = "dated_directory" ]; then
       # move deleted or changed files to archive/$(date +%Y)/$timestamp directory
-      backup_dir="--backup-dir=$dest/archive\_$i/$(date +%Y)/$timestamp"
+      backup_dir="--backup-dir=$dest/archive/$(hostname -a)\_$i/$(date +%Y)/$timestamp"
   elif [ "$move_old_files_to" = "dated_files" ]; then
       # move deleted or changed files to old directory, and append _$timestamp to file name
       backup_dir="--backup-dir=$dest/old_files --suffix=_$timestamp"
