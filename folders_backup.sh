@@ -65,7 +65,7 @@ for i in ${FOLDERS_TO_BACKUP}"" ; do
 
 
 
-  eval "/usr/bin/rclone sync $i $dest/$new\_$i $backup_dir"
+  eval "/usr/bin/rclone sync $i $dest/$(hostname -a)/$new\_$i $backup_dir"
 
         #echo "$cmd"
 done
